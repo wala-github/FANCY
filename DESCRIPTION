@@ -7,8 +7,8 @@ Authors@R: person(
     family = "Lai",
     role = c("aut", "cre"),
     email = "wanxin.graceca@gmail.com")
-URL: https://github.com/your-username/Fancy
-BugReports: https://github.com/your-username/Fancy/issues
+URL: https://github.com/wala-github/Fancy
+BugReports: https://github.com/wala-github/Fancy/issues
 Description: Infers microbial co-abundance networks by combining mutual
     information (via MRNET) and distance correlation into a single hybrid
     edge score. Bootstrap resampling provides frequency-based confidence,
