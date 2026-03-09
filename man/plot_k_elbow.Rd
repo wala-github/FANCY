@@ -20,10 +20,10 @@ Takes the list returned by \code{\link[=find_optimal_k]{find_optimal_k()}} and p
 a distinct symbol and label.
 }
 \examples{
-\donttest{
-data(fancy_tiny_clr)
-k_res <- find_optimal_k(t(fancy_tiny_clr), k_values = c(3L, 5L), cpus = 1)
+k_res <- list(
+  results = data.frame(k = c(3, 5, 7, 10), avg_mi = c(0.5, 0.45, 0.42, 0.41)),
+  best_k = 5
+)
 plot_k_elbow(k_res)
-}
 
 }

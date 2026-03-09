@@ -21,10 +21,13 @@
 #'   Domain, Phyla, Class, Order, Family, Genus, Species.
 #' @export
 #' @examples
-#' \donttest{
-#' tax <- parse_gtdb_taxonomy("taxonomy.MAGS.2.tsv")
-#' head(tax)
-#' }
+#' tsv <- tempfile(fileext = ".tsv")
+#' writeLines(c(
+#'   "Strain\tDomain\tPhyla\tClass\tOrder\tFamily\tGenus\tSpecies",
+#'   "MAG1\td__Bacteria\tp__Bacillota_C\tc__Clostridia\to__Lachnospirales\tf__Lachnospiraceae\tg__Butyrivibrio\ts__Butyrivibrio sp1"
+#' ), tsv)
+#' tax <- parse_gtdb_taxonomy(tsv)
+#' tax$Phyla
 #'
 #' @importFrom readr read_tsv
 #' @importFrom tibble column_to_rownames

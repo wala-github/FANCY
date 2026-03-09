@@ -59,11 +59,13 @@ near-zero MRNET frequency from suppressing edges that dCor finds
 reliably.
 }
 \examples{
-\donttest{
-data(fancy_tiny_clr)
-result <- fancy(t(fancy_tiny_clr), n_bootstrap = 2, cpus = 1)
-scored <- hybrid_score(result$all_edges, w1 = 0.3, w2 = 0.7)
-head(scored)
-}
+edges <- data.frame(
+  source = c("MAG1", "MAG2", "MAG3"),
+  target = c("MAG2", "MAG3", "MAG4"),
+  EdgeFrequency = c(0.8, 0.5, 0.9),
+  Stability.dcor.scaled = c(0.7, 0.3, 0.85)
+)
+scored <- hybrid_score(edges, w1 = 0.3, w2 = 0.7)
+scored$HybridScore
 
 }

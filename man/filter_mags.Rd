@@ -40,11 +40,9 @@ on line 111, but the variable was actually \code{count_table_cov_stats}
 This function eliminates that confusion.
 }
 \examples{
-\donttest{
 data(fancy_tiny_counts)
 data(fancy_tiny_coverage)
 filt <- filter_mags(fancy_tiny_counts, fancy_tiny_coverage)
 dim(filt)
-}
 
 }

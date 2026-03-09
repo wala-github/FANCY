@@ -12,11 +12,15 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' data(fancy_tiny_clr)
-#' result <- fancy(t(fancy_tiny_clr), n_bootstrap = 2, cpus = 1)
-#' plot(result)
-#' }
+#' mock <- structure(list(
+#'   edges = data.frame(source = "A", target = "B", HybridScore = 0.9),
+#'   all_edges = data.frame(
+#'     source = paste0("M", 1:20), target = paste0("M", 21:40),
+#'     HybridScore = runif(20)
+#'   ),
+#'   params = list(threshold_method = "quantile", threshold_value = 0.7)
+#' ), class = "fancy")
+#' plot(mock)
 #'
 #' @importFrom graphics hist abline text par
 plot.fancy <- function(x, ...) {
@@ -73,11 +77,11 @@ plot.fancy <- function(x, ...) {
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' data(fancy_tiny_clr)
-#' k_res <- find_optimal_k(t(fancy_tiny_clr), k_values = c(3L, 5L), cpus = 1)
+#' k_res <- list(
+#'   results = data.frame(k = c(3, 5, 7, 10), avg_mi = c(0.5, 0.45, 0.42, 0.41)),
+#'   best_k = 5
+#' )
 #' plot_k_elbow(k_res)
-#' }
 #'
 #' @importFrom graphics legend plot points
 plot_k_elbow <- function(k_results) {

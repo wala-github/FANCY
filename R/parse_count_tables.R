@@ -95,11 +95,13 @@ clean_sample_names <- function(
 #'   data.frame has MAG IDs as row names and samples as columns.
 #' @export
 #' @examples
-#' \donttest{
-#' tables <- parse_count_tables("path/to/tsv_dir")
-#' count   <- tables$count
-#' cov_frac <- tables$covered_fraction
-#' }
+#' d <- tempfile("tsvdir")
+#' dir.create(d)
+#' writeLines(c("MAG\tcount\trel_abund\tcov_frac",
+#'   "MAG1\t100\t0.5\t0.8", "MAG2\t200\t0.3\t0.6"),
+#'   file.path(d, "sample1.tsv"))
+#' tables <- parse_count_tables(d, drop_first_row = FALSE)
+#' tables$count
 #'
 #' @importFrom dplyr select
 parse_count_tables <- function(

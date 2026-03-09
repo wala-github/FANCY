@@ -41,11 +41,8 @@ elbow curve helps choose k: the point where MI stops improving steeply
 Computation is parallelised across k values using \pkg{snowfall}.
 }
 \examples{
-\donttest{
-data(fancy_tiny_clr)
-res <- find_optimal_k(t(fancy_tiny_clr), k_values = c(3L, 5L), cpus = 1)
-plot(res$results$k, res$results$avg_mi, type = "b")
+small_mat <- matrix(rnorm(50), nrow = 10, ncol = 5)
+res <- find_optimal_k(small_mat, k_values = c(2L, 3L), cpus = 1)
 res$best_k
-}
 
 }

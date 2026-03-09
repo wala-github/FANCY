@@ -187,12 +187,14 @@ compute_hybrid_scores <- function(mrnet_freq, dcor_freq,
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' data(fancy_tiny_clr)
-#' result <- fancy(t(fancy_tiny_clr), n_bootstrap = 2, cpus = 1)
-#' scored <- hybrid_score(result$all_edges, w1 = 0.3, w2 = 0.7)
-#' head(scored)
-#' }
+#' edges <- data.frame(
+#'   source = c("MAG1", "MAG2", "MAG3"),
+#'   target = c("MAG2", "MAG3", "MAG4"),
+#'   EdgeFrequency = c(0.8, 0.5, 0.9),
+#'   Stability.dcor.scaled = c(0.7, 0.3, 0.85)
+#' )
+#' scored <- hybrid_score(edges, w1 = 0.3, w2 = 0.7)
+#' scored$HybridScore
 #'
 #' @importFrom stats quantile
 hybrid_score <- function(
@@ -254,12 +256,13 @@ hybrid_score <- function(
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' data(fancy_tiny_clr)
-#' result <- fancy(t(fancy_tiny_clr), n_bootstrap = 2, cpus = 1)
-#' top <- threshold_edges(result$all_edges, method = "top_n", value = 50)
-#' nrow(top)
-#' }
+#' scored <- data.frame(
+#'   source = paste0("MAG", 1:10),
+#'   target = paste0("MAG", 11:20),
+#'   HybridScore = seq(0.1, 1.0, by = 0.1)
+#' )
+#' top5 <- threshold_edges(scored, method = "top_n", value = 5)
+#' nrow(top5)
 #'
 #' @importFrom stats quantile
 threshold_edges <- function(

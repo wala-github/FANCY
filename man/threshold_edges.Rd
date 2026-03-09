@@ -28,11 +28,12 @@ percent.}
 }
 }
 \examples{
-\donttest{
-data(fancy_tiny_clr)
-result <- fancy(t(fancy_tiny_clr), n_bootstrap = 2, cpus = 1)
-top <- threshold_edges(result$all_edges, method = "top_n", value = 50)
-nrow(top)
-}
+scored <- data.frame(
+  source = paste0("MAG", 1:10),
+  target = paste0("MAG", 11:20),
+  HybridScore = seq(0.1, 1.0, by = 0.1)
+)
+top5 <- threshold_edges(scored, method = "top_n", value = 5)
+nrow(top5)
 
 }

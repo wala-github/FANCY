@@ -57,15 +57,20 @@ phyla_palette <- function(phyla) {
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' data(fancy_tiny_clr)
-#' data(fancy_tiny_taxonomy)
-#' result <- fancy(t(fancy_tiny_clr), n_bootstrap = 2, cpus = 1)
-#' out <- export_cytoscape(result, fancy_tiny_taxonomy,
-#'                         file_prefix = file.path(tempdir(), "fancy_net"))
+#' mock <- structure(list(
+#'   edges = data.frame(
+#'     source = c("MAG1", "MAG2"), target = c("MAG2", "MAG3"),
+#'     HybridScore = c(0.9, 0.7)
+#'   )
+#' ), class = "fancy")
+#' tax <- data.frame(
+#'   Phyla = c("Bacillota", "Pseudomonadota", "Bacteroidota"),
+#'   Genus = c("Genus_A", "Genus_B", "Genus_C"),
+#'   row.names = c("MAG1", "MAG2", "MAG3")
+#' )
+#' out <- export_cytoscape(mock, tax,
+#'                         file_prefix = file.path(tempdir(), "ex"))
 #' head(out$edges)
-#' head(out$nodes)
-#' }
 export_cytoscape <- function(
     fancy_result,
     taxonomy,

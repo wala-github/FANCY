@@ -107,10 +107,10 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' data(fancy_tiny_clr)
-#' res <- bootstrap_networks(t(fancy_tiny_clr), n_bootstrap = 2, k = 5L, cpus = 1)
-#' }
+#' small_mat <- matrix(rnorm(50), nrow = 10, ncol = 5,
+#'                     dimnames = list(NULL, paste0("V", 1:5)))
+#' res <- bootstrap_networks(small_mat, n_bootstrap = 2, k = 2L, cpus = 1)
+#' names(res)[1:4]
 #'
 #' @importFrom snowfall sfInit sfStop sfExport sfClusterApplyLB sfLibrary sfCpus
 bootstrap_networks <- function(

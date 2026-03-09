@@ -25,12 +25,10 @@
 #'   columns).
 #' @export
 #' @examples
-#' \donttest{
 #' data(fancy_tiny_counts)
 #' data(fancy_tiny_coverage)
 #' filt <- filter_mags(fancy_tiny_counts, fancy_tiny_coverage)
 #' dim(filt)
-#' }
 #'
 #' @importFrom dplyr mutate across
 filter_mags <- function(
@@ -76,13 +74,9 @@ filter_mags <- function(
 #'   row and column names.
 #' @export
 #' @examples
-#' \donttest{
 #' data(fancy_tiny_counts)
-#' data(fancy_tiny_coverage)
-#' filt <- filter_mags(fancy_tiny_counts, fancy_tiny_coverage)
-#' clr_df <- clr_normalize(filt)
+#' clr_df <- clr_normalize(fancy_tiny_counts[1:10, 1:10])
 #' dim(clr_df)
-#' }
 #'
 #' @importFrom compositions clr
 clr_normalize <- function(count_table, pseudocount = 1) {

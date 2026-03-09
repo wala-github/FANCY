@@ -60,6 +60,22 @@ Fancy/
 └── NAMESPACE          Exports and imports (14 exported functions)
 ```
 
+## Why Fancy?
+
+Standard correlation methods (e.g. Pearson, Spearman) miss nonlinear
+microbial interactions. Fancy's hybrid score captures patterns that
+linear metrics cannot, including threshold effects, context-dependent
+relationships, and feedback loops between MAGs.
+
+| Threshold competitive exclusion | L-shaped nonlinear relationship | Context-dependent interaction |
+|:---:|:---:|:---:|
+| ![](man/figures/scatter-pair1-1.png) | ![](man/figures/scatter-pair2-1.png) | ![](man/figures/scatter-pair3-1.png) |
+| Bulleidia vs AC2028: Pearson r = -0.47 but the relationship is nonlinear with a clear threshold. Fancy hybrid score = 0.40. | RUG023 vs Cryptobacteroides: Pearson r = -0.31 underestimates a strong L-shaped dependency. Fancy hybrid score = 0.25. | CAG-791 vs Methanobrevibacter: Pearson r = -0.02 (no linear signal), yet Fancy hybrid score = 0.32 reveals a hidden association. |
+
+Points are coloured by methane emission level (CH4 g/day: blue = low,
+yellow = mid, red = high), highlighting environment-dependent structure
+within these interactions.
+
 ## Quick start
 
 ```r
